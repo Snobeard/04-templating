@@ -25,10 +25,12 @@ Article.prototype.toHtml = function() {
 
   // TODO: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
 
+  return template(this);
+
 };
 
-// COMMENT: Why are there parentheses around "(a,b)" in the .sort() method, but not around the "articleObject" or "article" arguments in the .forEach() methods?
-// PUT YOUR RESPONSE HERE
+// COMMENTED: Why are there parentheses around "(a,b)" in the .sort() method, but not around the "articleObject" or "article" arguments in the .forEach() methods?
+// The convention of the sort method takes an (a,b) as inputs and the function that follows illustrates the desired interperplay between the a element and b element.  The .forEach method takes in a single array as an argument to loop through its contents.
 rawData.sort((a,b) => {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
