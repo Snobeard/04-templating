@@ -35,7 +35,14 @@ article h1 {
 .article-body img {
   margin: 4vw 0;
 }
+#filters {
+  text-decoration: none;
+  padding-top: 2%;
+}
 
+#filters li {
+  display: inline-block;
+}
 #about header {
   text-align: center;
   padding: 3vw;
