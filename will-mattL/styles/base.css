@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo|Roboto');
+
+* {
+  margin: 0px;
+}
+
+h1 {
+  font-family: "Arimo";
+}
+
+h2, h3, h4, p, .byline {
+font-family: "Roboto";
+}
+
+address, .byline:nth-child(1n+0) {
+  display: inline;
+  color: #777;
+}
+
+article {
+  margin: 4vw;
+}
+
+img {
+  width: 100%;
+}
+a {
+ text-decoration: none;
+ color: #777;
+}
+
+.site-header {
+  background-color: #FFEAAA;
+}
+
+.site-header ul li {
+  list-style: none;
+  display: inline-block;
+  display: none;
+}
+
+#about, footer {
+  background-color: #FFEAAA;
+}

@@ -1,0 +1,64 @@
+.heading-group-h1 h1 {
+  padding: 6vw 4vw;
+  font-size: 8vw;
+}
+
+.heading-group-h1 h2 {
+  padding: 0 4vw;
+  padding-bottom: 6vw;
+}
+
+.icon-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 11vw;
+}
+
+address a {
+  font-weight: bold;
+}
+article {
+  padding-bottom: 10vw;
+}
+article h1 {
+  margin: 7vw 0;
+  font-size: 7vw;
+}
+
+.article-body {
+  font-size: 4.7vw;
+  margin-top: 5vw;
+  line-height: 6.5vw;
+}
+
+.article-body img {
+  margin: 4vw 0;
+}
+#filters {
+  text-decoration: none;
+  padding-top: 2%;
+}
+
+#filters li {
+  display: inline-block;
+}
+#about header {
+  text-align: center;
+  padding: 3vw;
+  font-size: 7vw;
+  padding-bottom: 5vw;
+}
+
+#about h1 {
+  padding: 2vw 4vw;
+}
+
+#about section ul {
+  padding-bottom: 5vw;
+}
+
+footer {
+  text-align: center;
+  padding: 5vw;
+}
