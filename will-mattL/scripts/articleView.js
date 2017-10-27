@@ -10,46 +10,41 @@ let articleView = {};
 articleView.populateFilters = () => {
   $('article').each(function() {
     if (!$(this).hasClass('template')) {
-      let val = $(this).find('address a').text();
-      let optionTag = `<option value="${val}">${val}</option>`;
-
-      if ($(`#author-filter option[value="${val}"]`).length === 0) {
-        $('#author-filter').append(optionTag);
+      let optionTemplate = $('#testTemplate').html();
+      let compiledOption = Handlebars.compile(optionTemplate);
+      let context = {data: $(this).data('author')};
+      if ($(`#author-filter option[value="${context.data}"]`).length ===0) {
+        $('#author-filter').append(compiledOption({data: $(this).data('author')}));
       }
 
-      val = $(this).attr('data-category');
-      optionTag = `<option value="${val}">${val}</option>`;
-      if ($(`#category-filter option[value="${val}"]`).length === 0) {
-        $('#category-filter').append(optionTag);
+      let context2 = {data: $(this).data('category')};
+
+      if ($(`#category-filter option[value="${context2.data}"]`).length === 0) {
+        $('#category-filter').append(compiledOption(context2));
       }
     }
   });
 };
 
-articleView.handleAuthorFilter = () => {
-  $('#author-filter').on('change', function() {
+articleView.buildFilters = (act, inact) => {
+  $(`#${act}-filter`).on('change', function() {
     if ($(this).val()) {
       $('article').hide();
-      $(`article[data-author="${$(this).val()}"]`).fadeIn();
+      $(`article[data-${act}="${$(this).val()}"]`).fadeIn();
     } else {
       $('article').fadeIn();
       $('article.template').hide();
     }
-    $('#category-filter').val('');
+    $(`#${inact}-filter`).val('');
   });
+}
+
+articleView.handleAuthorFilter = () => {
+  articleView.buildFilters('author', 'category');
 };
 
 articleView.handleCategoryFilter = () => {
-  $('#category-filter').on('change', function() {
-    if ($(this).val()) {
-      $('article').hide();
-      $(`article[data-category="${$(this).val()}"]`).fadeIn();
-    } else {
-      $('article').fadeIn();
-      $('article.template').hide();
-    }
-    $('#author-filter').val('');
-  });
+  articleView.buildFilters('category', 'author');
 };
 
 articleView.handleMainNav = () => {
